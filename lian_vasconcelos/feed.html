@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feed de Denúncias</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
+
+    header {
+      background-color: #b30000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    .feed {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 0 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .post {
+      background-color: #fff8e1;
+      border: 2px solid #ffcc00;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .post img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .post-content {
+      padding: 15px;
+    }
+
+    .post-title {
+      color: #b30000;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .post-text {
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    footer {
+      background-color: #b30000;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    🔥 Denúncias de Queimadas e Ações dos Bombeiros
+  </header>
+
+  <section class="feed" id="feed">
+    
+  </section>
+
+  <footer>
+    &copy; 2025 - Visualizador de Denúncias Ambientais
+  </footer>
+
+  <script>
+    const denuncias = [
+      {
+        titulo: "🔥 Linha de fogo se forma na serra de Nova Lima",
+        descricao: "Uma enorme linha de fogo se forma na serra do Vale do Sereno, em Nova Lima, na Região Metropolitana de Belo Horizonte, na noite deste domingo.",
+        imagem: "novalima.PNG"
+      },
+      {
+        titulo: "👨‍🚒 Bombeiros lutam com as chamas",
+        descricao: "Incêndio atinge 1.500 hectares de fazenda em MG; Bombeiros e funcionários trabalharam por três dias para apagar o fogo .",
+        imagem: "bombeiro.PNG"
+      },
+      {
+        titulo: "🚫 Denúncia anônima evita tragédia em mata fechada",
+        descricao: "Moradores denunciaram fumaça suspeita e evitaram um incêndio florestal. A equipe de fiscalização chegou a tempo.",
+        imagem: "denuncie.PNG"
+      }
+    ];
+
+    const feed = document.getElementById("feed");
+
+    denuncias.forEach(denuncia => {
+      const post = document.createElement("div");
+      post.className = "post";
+      post.innerHTML = `
+        <img src="${denuncia.imagem}" alt="Imagem da denúncia">
+        <div class="post-content">
+          <div class="post-title">${denuncia.titulo}</div>
+          <div class="post-text">${denuncia.descricao}</div>
+        </div>
+      `;
+      feed.appendChild(post);
+    });
+  </script>
+
+</body>
+</html>
